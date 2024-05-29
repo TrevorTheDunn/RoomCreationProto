@@ -1,4 +1,5 @@
-const createRoom = (e) => {
+const createRoom = async (e) => {
+    e.preventDefault();
     console.log("Called!");
 
     const name = document.querySelector("#roomName").value;

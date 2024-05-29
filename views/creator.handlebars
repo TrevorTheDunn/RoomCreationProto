@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A Room</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+    <section id="content">
+        <form id="roomCreationForm"
+              name="roomCreationForm"
+              className="roomCreationForm"
+              method="POST"
+              action="/createRoom">
+            <label htmlFor="name">Room Name: </label>
+            <input id="roomName" type="text" name="name" placeholder="Name">
+            <br>
+            <label htmlFor="theme">Theme: </label>
+            <select id="roomTheme" name="theme">
+                <option value="default" selected>Default</option>
+                <option value="coffee">Coffee Shop</option>
+                <option value="western">Western</option>
+                <option value="cyberpunk">Cyberpunk</option>
+                <option value="kawaii">Kawaii</option>
+            </select>
+            <br>
+            <label htmlFor="members">No. of Members: </label>
+            <input id="roomMembers" name="members" type="number" min="2" max="7">
+            <br>
+            
+        </form>
+    </section>
+</body>
+</html>
