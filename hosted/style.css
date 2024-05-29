@@ -1,0 +1,23 @@
+#content {
+    align-items: center;
+    text-align: center;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#roomCreationForm {
+    border-radius: 25px;
+    background: #a1a1a1;
+    width: 300px;
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    padding: 20px;
+    left: 42.5%;
+}
