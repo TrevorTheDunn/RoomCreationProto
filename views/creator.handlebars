@@ -9,10 +9,12 @@
 <body>
     <section id="content">
         <form id="roomCreationForm"
+              onsubmit="{ (e) => createRoom(e) }"
               name="roomCreationForm"
               className="roomCreationForm"
               method="POST"
-              action="/createRoom">
+              action="/createRoom"
+        >
             <label htmlFor="name">Room Name: </label>
             <input id="roomName" type="text" name="name" placeholder="Name">
             <br>
@@ -28,8 +30,9 @@
             <label htmlFor="members">No. of Members: </label>
             <input id="roomMembers" name="members" type="number" min="2" max="7">
             <br>
-            
+            <input id="roomSubmit" type="submit" value="Create Room">
         </form>
     </section>
+    <script src="assets/creatorBundle.js"></script>
 </body>
 </html>

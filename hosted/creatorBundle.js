@@ -1,0 +1,1 @@
+window.onload=()=>{document.querySelector("#roomSubmit").onclick=e=>{(async e=>{e.preventDefault(),console.log("Called!");const o=document.querySelector("#roomName").value,l=document.querySelector("#roomTheme").value,c=document.querySelector("#roomMembers").value;console.log("Name: "+o),console.log("Theme: "+l),console.log("Members: "+c)})(e)}};
