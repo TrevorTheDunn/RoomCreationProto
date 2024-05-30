@@ -2,9 +2,9 @@ const createRoom = async (e) => {
     e.preventDefault();
     console.log("Called!");
 
-    const name = e.target.querySelector("#roomName").value;
-    const theme = e.target.querySelector("#roomTheme").value;
-    const members = e.target.querySelector("#roomMembers").value;
+    const name = document.querySelector("#roomName").value;
+    const theme = document.querySelector("#roomTheme").value;
+    const members = document.querySelector("#roomMembers").value;
 
     console.log("Name: " + name);
     console.log("Theme: " + theme);
@@ -12,7 +12,7 @@ const createRoom = async (e) => {
 
     const data = {name, theme, members};
     
-    const response = await fetch(e.target.action, {
+    const response = await fetch("/createRoom", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
