@@ -21,3 +21,7 @@
     padding: 20px;
     left: 42.5%;
 }
+
+#roomPicture {
+    max-width: 650px;
+}

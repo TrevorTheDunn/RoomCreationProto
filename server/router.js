@@ -2,7 +2,7 @@ const controllers = require('./controllers');
 
 const router = (app) => {
 
-    app.get('/getRoomInfo', controllers.Room.getRoom);
+    app.get('/getRoomData', controllers.Creator.getRoomData);
 
     app.get('/roomView', controllers.Room.roomPage);
 

@@ -1,18 +1,17 @@
+// createRoom - pulls data entered into the form
+// and sends that data in a post request to be saved
+// redirects to room.handlebars if instructed to
+// or handles an error if one is returned
 const createRoom = async (e) => {
     e.preventDefault();
-    console.log("Called!");
 
     const name = document.querySelector("#roomName").value;
     const theme = document.querySelector("#roomTheme").value;
-    const members = document.querySelector("#roomMembers").value;
+    const amtMembers = document.querySelector("#roomMembers").value;
 
-    console.log("Name: " + name);
-    console.log("Theme: " + theme);
-    console.log("Members: " + members);
-
-    const data = {name, theme, members};
+    const data = {name, theme, amtMembers};
     
-    const response = await fetch("/createRoom", {
+    const response = await fetch('/createRoom', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

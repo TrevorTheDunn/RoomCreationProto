@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
     entry: {
         creator: './src/creator.js',
+        room: './src/room.js',
     },
     module: {
         rules: [
