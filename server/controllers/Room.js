@@ -1,3 +1,7 @@
+const models = require('../models');
+
+const { Room } = models;
+
 // creatorPage - displays the creator.handlebars page
 const creatorPage = async (req, res) => res.render('creator');
 

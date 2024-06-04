@@ -10,6 +10,11 @@ const getRoom = async () => {
 
     const result = await response.json();
 
+    console.log(JSON.stringify(result));
+
+    const rooms = result.rooms;
+    console.log(JSON.stringify(rooms));
+
     if(!result) {
         return;
     }
@@ -18,9 +23,11 @@ const getRoom = async () => {
     const roomTheme = document.querySelector("#roomTheme");
     const roomMembers = document.querySelector("#roomMembers");
 
-    roomName.innerHTML = `Name: ${result.name}`;
+    const index = rooms.length - 1;
+
+    roomName.innerHTML = `Name: ${rooms[index].name}`;
     roomTheme.innerHTML = "Theme: ";
-    switch(result.theme) {
+    switch(rooms[index].theme) {
         case 'default': 
             roomTheme.innerHTML += 'Default';
             break;
@@ -40,7 +47,7 @@ const getRoom = async () => {
             roomTheme.innerHTML += 'Undefined';
             break;
     }
-    roomMembers.innerHTML = `Amount of Members: ${result.amtMembers}`;
+    roomMembers.innerHTML = `Amount of Members: ${rooms[index].amtMembers}`;
 
     return;
 };
