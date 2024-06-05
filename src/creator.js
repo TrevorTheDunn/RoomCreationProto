@@ -10,6 +10,7 @@ const createRoom = async (e) => {
     const amtMembers = document.querySelector("#roomMembers").value;
 
     const data = {name, theme, amtMembers};
+    console.log(JSON.stringify(data));
     
     const response = await fetch('/createRoom', {
         method: 'POST',
