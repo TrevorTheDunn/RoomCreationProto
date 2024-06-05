@@ -33,8 +33,9 @@ const createRoom = async (req, res) => {
     amtMembers: req.body.amtMembers,
   };
 
+  const newRoom = new Room(roomData);
+
   try {
-    const newRoom = new Room(roomData);
     await newRoom.save();
     return res.status(201).json({
       redirect: '/roomView',
