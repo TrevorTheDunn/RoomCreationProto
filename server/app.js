@@ -5,6 +5,7 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressHandlebars = require('express-handlebars');
+const helmet = require('helmet');
 
 const router = require('./router.js');
 
@@ -20,6 +21,7 @@ mongoose.connect(dbURI).catch((err) => {
 
 const app = express();
 
+app.use(helmet());
 app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
