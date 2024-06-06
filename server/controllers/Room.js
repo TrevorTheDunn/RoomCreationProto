@@ -12,8 +12,12 @@ const roomPage = async (req, res) => res.render('room');
 // and creates a new Room using the data, then saves it
 // and redirects to the room viewer
 const createRoom = async (req, res) => {
-  console.log("CreateRoom called!");
-  if (!req.body.name) {
+  
+  return res.status(400).json({
+    error: 'createRoom called',
+  });
+
+  /*if (!req.body.name) {
     return res.status(400).json({
       error: 'Name is required!',
     });
@@ -46,7 +50,7 @@ const createRoom = async (req, res) => {
       return res.status(400).json({ error: 'Room already exists!' });
     }
     return res.status(500).json({ error: 'An error occurred making room!' });
-  }
+  }*/
 };
 
 // getRoomData - fetches a room with the query
