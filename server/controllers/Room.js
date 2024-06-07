@@ -37,11 +37,8 @@ const createRoom = async (req, res) => {
 
   try {
     //await newRoom.save();
-    /*return res.status(201).json({
-      redirect: '/roomView',
-    });*/
-    return res.status(400).json({
-        error: 'I think redirect is the issue.'
+    return res.status(201).json({
+      redirect: '/roomView'
     });
   } catch (err) {
     console.log(err);
