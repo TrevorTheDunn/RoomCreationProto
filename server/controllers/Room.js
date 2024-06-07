@@ -33,16 +33,12 @@ const createRoom = async (req, res) => {
     amtMembers: req.body.amtMembers,
   };
 
-  const newRoom = new Room(roomData);
-
   try {
-    return res.status(400).json({
-        error: 'Just before save',
-    });
-    /*await newRoom.save();
+    const newRoom = new Room(roomData);
+    await newRoom.save();
     return res.status(201).json({
       redirect: '/roomView',
-    });*/
+    });
   } catch (err) {
     console.log(err);
     if (err.code === 11000) {
