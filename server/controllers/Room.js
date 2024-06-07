@@ -33,11 +33,15 @@ const createRoom = async (req, res) => {
     amtMembers: req.body.amtMembers,
   };
 
+  const newRoom = new Room(roomData);
+
   try {
-    const newRoom = new Room(roomData);
     //await newRoom.save();
-    return res.status(201).json({
+    /*return res.status(201).json({
       redirect: '/roomView',
+    });*/
+    return res.status(400).json({
+        error: 'I think redirect is the issue.'
     });
   } catch (err) {
     console.log(err);
