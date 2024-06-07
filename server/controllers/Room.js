@@ -12,7 +12,6 @@ const roomPage = async (req, res) => res.render('room');
 // and creates a new Room using the data, then saves it
 // and redirects to the room viewer
 const createRoom = async (req, res) => {
-
   if (!req.body.name) {
     return res.status(400).json({
       error: 'Name is required!',
@@ -36,9 +35,12 @@ const createRoom = async (req, res) => {
   const newRoom = new Room(roomData);
 
   try {
-    //await newRoom.save();
-    return res.status(201).json({
-      redirect: '/roomView'
+    await newRoom.save();
+    /* return res.status(201).json({
+      redirect: '/roomView',
+    }); */
+    return res.status(400).json({
+      error: 'What is wronggggg',
     });
   } catch (err) {
     console.log(err);
