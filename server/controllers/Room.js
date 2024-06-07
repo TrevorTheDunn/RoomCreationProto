@@ -35,7 +35,7 @@ const createRoom = async (req, res) => {
 
   try {
     const newRoom = new Room(roomData);
-    await newRoom.save();
+    //await newRoom.save();
     return res.status(201).json({
       redirect: '/roomView',
     });
