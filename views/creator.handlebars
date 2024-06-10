@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create A Room</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <title>Create a Room</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="">
 </head>
 <body>
     <section id="content">
@@ -22,7 +22,7 @@
             <input id="roomName" type="text" name="name" placeholder="Name">
             <br>
             <label htmlFor="theme">Theme: </label>
-            <select id="roomTheme" name="theme">
+            <select name="theme" id="roomTheme">
                 <option value="default" selected>Default</option>
                 <option value="coffee">Coffee Shop</option>
                 <option value="western">Western</option>
@@ -31,11 +31,11 @@
             </select>
             <br>
             <label htmlFor="members">No. of Members: </label>
-            <input id="roomMembers" name="members" type="number" min="2" max="7">
+            <input id="roomMembers" name="members" type="numbers" min="1" max="7">
             <br>
             <input id="roomSubmit" type="submit" value="Create Room">
         </form>
     </section>
-    <script src="assets/creatorBundle.js"></script>
+    <script src=""></script>
 </body>
 </html>
