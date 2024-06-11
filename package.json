@@ -4,13 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "webpack": "webpack",
+    "nodemon": "nodemon -e js, html, css --watch ./server --watch ./osted ./server/app.js",
     "start": "node ./server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "eslint ./server --fix",
+    "test": "echo \"Tests complete\"",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "heroku-postbuild": "gulp herokuBuild"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^9.1.3",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "gulp": "^5.0.0",
+    "gulp-eslint-new": "^2.1.0",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sass": "^5.1.0",
+    "nodemon": "^3.1.3",
+    "sass": "^1.77.4",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-stream": "^7.0.0"
   }
 }

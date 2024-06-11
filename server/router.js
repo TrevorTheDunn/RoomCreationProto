@@ -1,6 +1,12 @@
 const controllers = require('./controllers');
 
 const router = (app) => {
+
+    app.post('/createRoom', controllers.Room.createRoom);
+
+    app.get('/roomView', controllers.Room.roomPage);
+
+    app.get('/creator', controllers.Room.creatorPage);
     app.get('/', controllers.Room.creatorPage);
 };
 
