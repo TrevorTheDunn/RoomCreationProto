@@ -4,6 +4,8 @@ const router = (app) => {
 
     app.post('/createRoom', controllers.Room.createRoom);
 
+    app.get('/getRoom', controllers.Room.getRoom);
+
     app.get('/roomView', controllers.Room.roomPage);
 
     app.get('/creator', controllers.Room.creatorPage);

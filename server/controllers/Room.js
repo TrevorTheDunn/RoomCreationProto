@@ -2,7 +2,9 @@
 
 //const { Room } = models;
 
-let rooms = [];
+//let rooms = [];
+
+let room;
 
 const creatorPage = async (req, res) => res.render('creator');
 
@@ -29,10 +31,26 @@ const createRoom = async (req, res) => {
         amtMembers: req.body.amtMembers,
     };
 
-    rooms[rooms.length] = roomData;
+    //rooms[rooms.length] = roomData;
+
+    room = roomData;
 
     return res.status(201).json({
         redirect: '/roomView',
+    });
+};
+
+const getRoom = async (req, res) => {
+    console.log("Get room called");
+
+    const roomData = {
+        name: room.name,
+        theme: room.theme,
+        amtMembers: room.amtMembers,
+    };
+
+    return res.status(200).json({
+        roomData,
     });
 };
 
@@ -40,4 +58,5 @@ module.exports = {
     creatorPage,
     roomPage,
     createRoom,
+    getRoom,
 };
