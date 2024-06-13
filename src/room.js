@@ -10,7 +10,9 @@ const getRoom = async () => {
 
     const result = await response.json();
 
-    const roomData = result.roomData;
+    const rooms = result.rooms;
+
+    const roomData = rooms[rooms.length - 1];
 
     console.log("Room Data: " + JSON.stringify(roomData));
 
