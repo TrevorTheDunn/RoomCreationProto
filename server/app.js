@@ -8,9 +8,9 @@ const expressHandlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
-const session = require('express-session');
-const RedisStore = require('connect-redis').default;
-const redis = require('redis');
+//const session = require('express-session');
+//const RedisStore = require('connect-redis').default;
+//const redis = require('redis');
 
 const router = require('./router.js');
 
@@ -24,7 +24,7 @@ mongoose.connect(dbURI).catch((err) => {
     }
 });
 
-const redisClient = redis.createClient({
+/*const redisClient = redis.createClient({
     url: process.env.REDISCLOUD_URL,
 });
 redisClient.on('error', (err) => console.log('Redis Client Error', err));
@@ -58,4 +58,23 @@ redisClient.connect().then(() => {
         if (err) { throw err; }
         console.log(`Listening on port ${port}`);
     });
+});*/
+
+const app = express();
+
+app.use(helmet());
+app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
+app.use(compression());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.engine('handlebars', expressHandlebars.engine({ defaultLayout: '' }));
+app.set('view engine', 'handlebars');
+app.set('views', `${__dirname}/../views`);
+
+router(app);
+
+app.listen(port, (err) => {
+  if (err) { throw err; }
+  console.log(`Listening on port ${port}`);
 });
