@@ -1,9 +1,16 @@
+require('dotenv').config();
+
 // Sets up the application
 const path = require('path');
 const express = require('express');
+const compression = require('compression');
 const expressHandlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const RedisStore = require('connect-redis').default;
+const redis = require('redis');
 
 const router = require('./router.js');
 
@@ -17,19 +24,38 @@ mongoose.connect(dbURI).catch((err) => {
     }
 });
 
-const app = express();
+const redisClient = redis.createClient({
+    url: process.env.REDISCLOUD_URL,
+});
+redisClient.on('error', (err) => console.log('Redis Client Error', err));
 
-app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+redisClient.connect().then(() => {
+    const app = express();
 
-app.engine('handlebars', expressHandlebars.engine({ defaultLayout: '' }));
-app.set('view engine', 'handlebars');
-app.set('views', `${__dirname}/../views`);
+    app.use(helmet());
+    app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
+    app.use(compression());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
 
-router(app);
+    app.use(session({
+        key: 'sessionid',
+        store: new RedisStore({
+            client: redisClient,
+        }),
+        secret: 'Looking For Group',
+        resave: false,
+        saveUninitialized: false,
+    }));
 
-app.listen(port, (err) => {
-    if (err) { throw err; }
-    console.log(`Listening on port ${port}`);
+    app.engine('handlebars', expressHandlebars.engine({ defaultLayout: '' }));
+    app.set('view engine', 'handlebars');
+    app.set('views', `${__dirname}/../views`);
+
+    router(app);
+
+    app.listen(port, (err) => {
+        if (err) { throw err; }
+        console.log(`Listening on port ${port}`);
+    });
 });

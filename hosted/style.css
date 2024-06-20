@@ -1,0 +1,40 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#content {
+    align-items: center;
+    text-align: center;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#roomCreationForm {
+    border-radius: 25px;
+    background: #a1a1a1;
+    max-width: 300px;
+    padding: 20px;
+    display: inline-block;
+    margin: auto;
+    margin-top: 45vh;
+}
+
+.info {
+    justify-content: left;
+}
+
+.info h1 {
+    margin-top: 5%;
+}
+
+#roomPicture {
+    max-width: 850px;
+}
