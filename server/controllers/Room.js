@@ -2,9 +2,7 @@ const models = require('../models');
 
 const { Room } = models;
 
-//let rooms = [];
-
-//let room;
+const listPage = async (req, res) => res.render('list');
 
 const creatorPage = async (req, res) => res.render('creator');
 
@@ -31,10 +29,6 @@ const createRoom = async (req, res) => {
         amtMembers: req.body.amtMembers,
     };
 
-    //rooms[rooms.length] = roomData;
-
-    //room = roomData;
-
     try {
         const newRoom = new Room(roomData);
         await newRoom.save();
@@ -48,25 +42,9 @@ const createRoom = async (req, res) => {
         }
         return res.status(500).json({ error: 'An error occurred making room!' });
     }
-
-    /*return res.status(201).json({
-        redirect: '/roomView',
-    });*/
 };
 
 const getRoom = async (req, res) => {
-    /*console.log("Get room called");
-
-    const roomData = {
-        name: room.name,
-        theme: room.theme,
-        amtMembers: room.amtMembers,
-    };
-
-    return res.status(200).json({
-        roomData,
-    });*/
-
     try {
         const query = {};
         const docs = await Room.find(query)
@@ -81,6 +59,7 @@ const getRoom = async (req, res) => {
 };
 
 module.exports = {
+    listPage,
     creatorPage,
     roomPage,
     createRoom,

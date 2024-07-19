@@ -53,6 +53,7 @@ const getRoom = async () => {
 
 // init - init function for room.handlebars
 // runs when the window has loaded
+// calls getRoom
 const init = () => {
     getRoom();
 };

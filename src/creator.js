@@ -1,3 +1,5 @@
+// createRoom function
+// retrieves information entered from the document
 
 const createRoom = async (e) => {
     e.preventDefault();
@@ -28,6 +30,8 @@ const createRoom = async (e) => {
     }
 };
 
+// init function - called when window loads
+// adds an onclick even to the button that calls createRoom
 const init = () => {
     const button = document.querySelector('#roomSubmit');
 

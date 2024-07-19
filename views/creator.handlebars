@@ -10,6 +10,11 @@
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
+    <nav id="navbar">
+        <div class="navlink button is-text"><a id="listButton" href="/">Home</a></div>
+        <div class="navlink button is-text"><a id="logoutButton" href="/logout">Logout</a></div>
+    </nav>
+
     <section id="content">
         <form id="roomCreationForm"
               onsubmit="{ (e) => createRoom(e) }"

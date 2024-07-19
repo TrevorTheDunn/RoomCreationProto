@@ -4,6 +4,9 @@ module.exports = {
     entry: {
         creator: './src/creator.js',
         room: './src/room.js',
+        list: './src/list.jsx',
+        login: './src/login.jsx',
+        signup: './src/signup.jsx',
     },
     module: {
         rules: [
